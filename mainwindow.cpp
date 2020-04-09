@@ -13,19 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    int unixTime = 1586410252;
-    QDateTime timestamp;
-    timestamp.setTime_t(unixTime);
-    qDebug() <<"unix : "<< timestamp.toString(Qt::SystemLocaleShortDate);
-
-    qint64 qiTimestamp=QDateTime::currentMSecsSinceEpoch();
-     qDebug() << qiTimestamp;
-    qDebug() << qiTimestamp/1000;
-
-    QDateTime dt;
-    dt.setTime_t(qiTimestamp/1000 + 1000000000);
-    qDebug() << dt.toString("yyyy-MM-dd hh:mm:ss");
-
     connect(ui->serialServerButton,SIGNAL(clicked(bool)),this,SLOT(serialButtonClicked(bool)));
     connect(ui->tcpServerButton,SIGNAL(clicked(bool)),this,SLOT(tcpButtonClicked(bool)));
 }
